@@ -37,11 +37,11 @@ class Table extends Component {
 
   constructor(props) {
     super(props);
-    this.state = this._calculateState(this.props);
+    this.state = this.calculateState(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState(this._calculateState(nextProps, this.state));
+    this.setState(this.calculateState(nextProps, this.state));
   }
 
   changePage = p => {
@@ -68,7 +68,7 @@ class Table extends Component {
     });
   };
 
-  _calculateState(props, oldState) {
+  calculateState(props, oldState) {
     const init = !oldState;
     const children = [];
     ReactChildren.forEach(props.children, (child, index) => {
@@ -80,7 +80,7 @@ class Table extends Component {
     });
 
     const columns = children;
-    const columnInfo = this._populateColumnsAndColumnData(columns, oldState);
+    const columnInfo = this.populateColumnsAndColumnData(columns, oldState);
 
     const totalPages = Math.ceil(props.rowsCount / props.paginatorPageLimit);
     const newState = {
@@ -107,17 +107,17 @@ class Table extends Component {
     return newState;
   }
 
-  _populateColumnsAndColumnData(columns, oldState) {
+  populateColumnsAndColumnData(columns, oldState) {
     return {
       bodyColumns: columns,
-      headerColumns: this._selectColumnElement(HEADER, columns),
+      headerColumns: this.selectColumnElement(HEADER, columns),
     };
   }
 
-  _selectColumnElement(type, columns) {
-    var newColumns = [];
-    for (var i = 0; i < columns.length; ++i) {
-      var column = columns[i];
+  selectColumnElement(type, columns) {
+    const newColumns = [];
+    for (let i = 0; i < columns.length; ++i) {
+      const column = columns[i];
       newColumns.push(
         React.cloneElement(column, {
           cell: type ? column.props[type] : column.props[CELL],
@@ -127,7 +127,7 @@ class Table extends Component {
     return newColumns;
   }
 
-  _renderRows() {
+  renderRows() {
     const { pagination, paginatorCurrentPage, paginatorPageLimit, rowsCount } = this.state;
     const rows = [];
     let i = 0;
@@ -149,7 +149,7 @@ class Table extends Component {
 
   render() {
     const header = <Row key={HEADER} rowIndex={-1} zIndex={1} columns={this.state.headerColumns} />;
-    const rows = this._renderRows();
+    const rows = this.renderRows();
     const pagination = this.state.pagination ? (
       <Pagination
         {...this.state}

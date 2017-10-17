@@ -10,8 +10,6 @@
     "react/jsx-filename-extension": 0,
     "no-mixed-operators": 0,
     "no-plusplus": 0,
-    "max-len": 0,
-    "linebreak-style": 0,
     "sort-imports": [2, {
       "ignoreCase": false,
       "ignoreMemberSort": false,

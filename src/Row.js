@@ -33,7 +33,7 @@ export default class Row extends Component {
   // return this.props.rowIndex !== nextProps.rowIndex;
   // }
 
-  _renderCell(rowIndex, columnProps, key) {
+  renderCell(rowIndex, columnProps, key) {
     return (
       <Cell
         className={columnProps.cellClassName}
@@ -51,7 +51,7 @@ export default class Row extends Component {
 
     for (let i = 0, j = columns.length; i < j; i++) {
       const key = `cell_${i}`;
-      cells[i] = this._renderCell(this.props.rowIndex, columns[i].props, key);
+      cells[i] = this.renderCell(this.props.rowIndex, columns[i].props, key);
     }
 
     return (
