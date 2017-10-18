@@ -1,13 +1,13 @@
-var webpack = require('webpack');
-var packageJSON = require('./package.json');
-var path = require('path');
+const webpack = require('webpack');
+const packageJSON = require('./package.json');
+const path = require('path');
 
-var banner =
-'/**\n' +
-' * ReactDatatable v' + packageJSON.version + ' \n' +
-' */\n';
+const banner =
+`${'/**\n' +
+' * ReactTabl v'}${  packageJSON.version  } \n` +
+` */\n`;
 
-var plugins = [
+const plugins = [
   new webpack.DefinePlugin({
     'process.env': {
       NODE_ENV: JSON.stringify('production'),
@@ -28,7 +28,7 @@ if (process.env.COMPRESS) {
 
 plugins.push(new webpack.BannerPlugin({ banner, raw: true }));
 
-var config = {
+const config = {
   module: {
     loaders: [
       {
@@ -40,13 +40,13 @@ var config = {
   },
 
   entry: {
-    'react-datatable': './src/index.js',
+    'react-tabl': './src/index.js',
   },
 
   output: {
     path: path.join(__dirname, './dist'),
     filename: process.env.COMPRESS ? '[name].min.js' : '[name].js',
-    library: 'ReactDatatable',
+    library: 'ReactTabl',
     libraryTarget: 'umd',
   },
 
@@ -69,7 +69,7 @@ var config = {
     Buffer: false,
   },
 
-  plugins: plugins,
+  plugins,
 };
 
 if (process.env.COMPRESS) {
