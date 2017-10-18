@@ -14,7 +14,7 @@
 		"prop-types": "^15.5.0"
 	},
 	"devDependencies": {
-		"babel-core": "^6.26.0",
+    "babel-core": "^6.26.0",
 		"babel-eslint": "^8.0.1",
 		"babel-loader": "^7.1.2",
 		"babel-preset-env": "^1.6.1",
@@ -31,11 +31,13 @@
 		"prettier": "^1.7.4",
 		"react": "^15.0.0",
 		"react-dom": "^15.0.0",
+    "release-script": "^1.0.2",
 		"webpack": "^3.8.1"
 	},
 	"scripts": {
 		"build": "webpack & cross-env COMPRESS=1 webpack",
-		"precommit": "lint-staged"
+		"precommit": "lint-staged",
+		"release": "release"
 	},
 	"repository": {
 		"type": "git",
