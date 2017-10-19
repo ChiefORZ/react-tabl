@@ -1,5 +1,5 @@
 /**
- * ReactTabl v0.5.0 
+ * ReactTabl v0.6.0 
  */
 
 (function webpackUniversalModuleDefinition(root, factory) {
