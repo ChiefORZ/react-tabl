@@ -4,6 +4,9 @@
   "description": "A React table component.",
   "license": "MIT",
   "main": "dist/react-tabl.js",
+  "files": [
+    "dist"
+  ],
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
     "react-dom": "^0.14.0 || ^15.0.0"
