@@ -2,6 +2,9 @@
   "name": "react-tabl",
   "version": "0.6.0",
   "description": "A React table component.",
+  "author": "ChiefORZ <seb.schaffernak+github@gmail.com>",
+  "user": "ChiefORZ",
+  "homepage": "https://github.com/ChiefORZ/react-tabl",
   "license": "MIT",
   "main": "dist/react-tabl.js",
   "files": [
@@ -40,6 +43,7 @@
   "scripts": {
     "build": "webpack & cross-env COMPRESS=1 webpack",
     "precommit": "lint-staged",
+    "prettier": "prettier --config .prettierrc --write '{src}/**/*.js'",
     "release": "release-it"
   },
   "repository": {
@@ -65,10 +69,5 @@
       "prettier --write",
       "git add"
     ]
-  },
-  "prettier": {
-    "printWidth": 100,
-    "singleQuote": true,
-    "trailingComma": "es5"
   }
 }
