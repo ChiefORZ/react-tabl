@@ -1,9 +1,8 @@
-node_modules
 .DS_Store
-.idea
-*-debug.log
-__site__
-__site_prerender__
+build
 coverage
-test-results.xml
-*-debug.log
+dist
+node_modules
+npm-debug.log
+styles.css
+.vscode
