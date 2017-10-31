@@ -6,7 +6,7 @@
   "user": "ChiefORZ",
   "homepage": "https://github.com/ChiefORZ/react-tabl",
   "license": "MIT",
-  "main": "dist/react-tabl.js",
+  "main": "dist/commonjs/index.js",
   "files": [
     "dist"
   ],
@@ -20,6 +20,7 @@
     "prop-types": "^15.5.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
     "babel-loader": "^7.1.2",
@@ -38,10 +39,18 @@
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
     "release-it": "^3.1.2",
+    "rimraf": "^2.6.2",
     "webpack": "^3.8.1"
   },
   "scripts": {
-    "build": "webpack & cross-env COMPRESS=1 webpack",
+    "build": "npm run build:commonjs && npm run build:umd",
+    "build:commonjs": "npm run clean:commonjs && cross-env NODE_ENV=production cross-env BABEL_ENV=commonjs babel src --out-dir dist/commonjs",
+    "build:demo": "npm run clean:demo && cross-env NODE_ENV=production webpack --config webpack.config.demo.js -p --bail",
+    "build:umd": "npm run clean:umd && cross-env NODE_ENV=production webpack --config webpack.config.umd.js --bail && cross-env COMPRESS=1,NODE_ENV=production webpack --config webpack.config.umd.js --bail",
+    "clean": "npm run clean:commonjs && npm run clean:demo && npm run clean:umd",
+    "clean:commonjs": "rimraf dist/commonjs",
+    "clean:demo": "rimraf build",
+    "clean:umd": "rimraf dist/umd",
     "precommit": "lint-staged",
     "prettier": "prettier --config .prettierrc --write '{src}/**/*.js'",
     "release": "release-it"

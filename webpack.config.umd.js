@@ -44,7 +44,7 @@ const config = {
   },
 
   output: {
-    path: path.join(__dirname, './dist'),
+    path: path.join(__dirname, './dist/umd'),
     filename: process.env.COMPRESS ? '[name].min.js' : '[name].js',
     library: 'ReactTabl',
     libraryTarget: 'umd',
