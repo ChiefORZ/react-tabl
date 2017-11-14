@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 
 import FakeObjectDataListStore from './helpers/FakeObjectDataListStore';
 
-const CellData = ({ children, data, rowIndex, ...props }) => {
-  const item = data.getObjectAt(rowIndex);
+const CellData = ({ children, columnKey, data, rowIndex, ...props }) => {
+  const item = data.getObjectAt(rowIndex)[columnKey];
   return children({ item, rowIndex, ...props });
 };
 
-export default class DefaultExample extends Component {
+export default class PaginationExample extends Component {
   constructor(props) {
     super(props);
 
@@ -22,28 +22,34 @@ export default class DefaultExample extends Component {
     return (
       <Table rowsCount={dataList.getSize()} pagination>
         <Column
+          columnKey="avatar"
           header="Avatar"
-          cell={<CellData data={dataList}>{props => <img src={props.item.avatar} />}</CellData>}
+          cell={<CellData data={dataList}>{props => <img src={props.item} />}</CellData>}
         />
         <Column
+          columnKey="firstName"
           header="First Name"
-          cell={<CellData data={dataList}>{props => <div>{props.item.firstName}</div>}</CellData>}
+          cell={<CellData data={dataList}>{props => <div>{props.item}</div>}</CellData>}
         />
         <Column
+          columnKey="lastName"
           header="Last Name"
-          cell={<CellData data={dataList}>{props => <div>{props.item.lastName}</div>}</CellData>}
+          cell={<CellData data={dataList}>{props => <div>{props.item}</div>}</CellData>}
         />
         <Column
+          columnKey="city"
           header="City"
-          cell={<CellData data={dataList}>{props => <div>{props.item.city}</div>}</CellData>}
+          cell={<CellData data={dataList}>{props => <div>{props.item}</div>}</CellData>}
         />
         <Column
+          columnKey="street"
           header="Street"
-          cell={<CellData data={dataList}>{props => <div>{props.item.street}</div>}</CellData>}
+          cell={<CellData data={dataList}>{props => <div>{props.item}</div>}</CellData>}
         />
         <Column
+          columnKey="email"
           header="Email"
-          cell={<CellData data={dataList}>{props => <div>{props.item.email}</div>}</CellData>}
+          cell={<CellData data={dataList}>{props => <div>{props.item}</div>}</CellData>}
         />
       </Table>
     );

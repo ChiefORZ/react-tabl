@@ -1,0 +1,27 @@
+img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.pagination {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 0.125rem;
+}
+
+.page-item {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #2196f3;
+  background-color: transparent;
+  border: 0 solid #ddd;
+}
+
+.page-item.active{
+  font-weight: 600;
+}

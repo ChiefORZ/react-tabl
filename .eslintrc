@@ -8,6 +8,8 @@
     "import/first": 0,
     "import/no-commonjs": 2,
     "react/jsx-filename-extension": 0,
+    "react/no-multi-comp": 0,
+    "react/prefer-stateless-function": 0,
     "no-mixed-operators": 0,
     "no-plusplus": 0,
     "sort-imports": [2, {

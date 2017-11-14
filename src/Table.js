@@ -17,6 +17,7 @@ const LAST_PAGE = '>>';
 class Table extends Component {
   static propTypes = {
     bordered: PropTypes.bool,
+    hover: PropTypes.bool,
     pagination: PropTypes.bool,
     paginatorPageLimit: PropTypes.number,
     paginatorPage: PropTypes.number,
@@ -29,6 +30,7 @@ class Table extends Component {
 
   static defaultProps = {
     bordered: false,
+    hover: false,
     pagination: false,
     paginatorPageLimit: 10,
     paginatorPage: 1,
@@ -164,8 +166,9 @@ class Table extends Component {
       <div>
         <table
           className={cx('table', {
-            'table-striped': this.props.striped,
             'table-bordered': this.props.bordered,
+            'table-hover': this.props.hover,
+            'table-striped': this.props.striped,
           })}
         >
           <thead>{header}</thead>
